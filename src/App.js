@@ -101,6 +101,13 @@ class App extends Component {
     });
   }
 
+  createNewTrick = (newTrick) => {
+    this.setState((prevState) => {
+      prevState.tricks.push(newTrick);
+      return { tricks: prevState.tricks };
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -116,7 +123,7 @@ class App extends Component {
                 tricks={this.state.tricks}
                 updateDifficulty={this.updateDifficulty}
                 updateCompletion={this.updateCompletion} />
-              <AddTrick />
+            <AddTrick onNewTrick={this.createNewTrick} />
             </div>
           </div>
         </div>

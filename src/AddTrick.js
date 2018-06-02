@@ -16,20 +16,34 @@ class AddTrick extends Component {
 
   createTrick = (event) => {
     console.table(this.state);
-    event.preventDefault();
+    this.props.onNewTrick(this.state);
+    this.resetState();
+  }
+
+  resetState = () => {
+    this.setState({
+      key: 0,
+      title: "",
+      url: "",
+      image: "",
+      description: "",
+      done: false,
+      difficulty: 1
+    });
   }
 
   updateState = (event) => {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : this.convertToInt(target.value);
     const name = target.name;
-
-    console.log(`Name: ${name}`);
-    console.log(`Value: ${value}`);
 
     this.setState({
       [name]: value
     });
+  }
+
+  convertToInt = (val) => {
+    return (parseInt(val) == val) ? parseInt(val) : val;
   }
 
   render() {
@@ -64,7 +78,11 @@ class AddTrick extends Component {
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
-              </select>
+            </select>
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="key">Key</label>
+            </div>
+            <input name="key" type="number" className="form-control" placeholder="Key" value={this.state.key} onChange={this.updateState} />
             </div>
 
           </form>
