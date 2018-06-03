@@ -9,7 +9,8 @@ class TrickList extends Component {
           key={trick.key}
           trick={trick}
           updateCompletion={this.props.updateCompletion}
-          updateDifficulty={this.props.updateDifficulty} />
+          updateDifficulty={this.props.updateDifficulty}
+          updateTrick={this.props.updateTrick} />
       )
     )
   }

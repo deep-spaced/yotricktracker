@@ -14,7 +14,7 @@ class App extends Component {
 
   updateCompletion = (key) => {
     let trick = this.state.tricks.find(function(tr) {
-      if(tr.key == key) { return tr; }
+      if(tr.key === key) { return tr; }
     });
     let idx = this.state.tricks.indexOf(trick);
     trick.done = !trick.done;
@@ -27,10 +27,10 @@ class App extends Component {
 
   updateDifficulty = (key, difficulty) => {
     let trick = this.state.tricks.find(function(tr) {
-      if(tr.key == key) { return tr; }
+      if(tr.key === key) { return tr; }
     });
     let idx = this.state.tricks.indexOf(trick);
-    trick.difficulty = parseInt(difficulty);
+    trick.difficulty = parseInt(difficulty, 10);
     this.setState((prevState) => {
       prevState.tricks.splice(idx, 1, trick);
       this.saveTricks(prevState.tricks);
@@ -41,6 +41,20 @@ class App extends Component {
   createNewTrick = (newTrick) => {
     this.setState((prevState) => {
       prevState.tricks.push(newTrick);
+      this.saveTricks(prevState.tricks);
+      return { tricks: prevState.tricks };
+    });
+  }
+
+  updateTrick = (trick) => {
+    console.log('UPDATED');
+    let key = trick.key;
+    let oldTrick = this.state.tricks.find(function(tr) {
+      if(tr.key === key) { return tr; }
+    });
+    let idx = this.state.tricks.indexOf(oldTrick);
+    this.setState((prevState) => {
+      prevState.tricks.splice(idx, 1, trick);
       this.saveTricks(prevState.tricks);
       return { tricks: prevState.tricks };
     });
@@ -60,7 +74,8 @@ class App extends Component {
               <TrickList
                 tricks={this.state.tricks}
                 updateDifficulty={this.updateDifficulty}
-                updateCompletion={this.updateCompletion} />
+                updateCompletion={this.updateCompletion}
+                updateTrick={this.updateTrick} />
             <AddTrick onNewTrick={this.createNewTrick} />
             </div>
           </div>
