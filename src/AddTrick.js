@@ -43,7 +43,7 @@ class AddTrick extends Component {
   }
 
   convertToInt = (val) => {
-    return (parseInt(val, 10) == val) ? parseInt(val, 10) : val;
+    return (parseInt(val, 10) === val) ? parseInt(val, 10) : val;
   }
 
   render() {

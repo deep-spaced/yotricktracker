@@ -14,7 +14,7 @@ class App extends Component {
 
   updateCompletion = (key) => {
     let trick = this.state.tricks.find(function(tr) {
-      if(tr.key === key) { return tr; }
+      return tr.key === key;
     });
     let idx = this.state.tricks.indexOf(trick);
     trick.done = !trick.done;
@@ -27,7 +27,7 @@ class App extends Component {
 
   updateDifficulty = (key, difficulty) => {
     let trick = this.state.tricks.find(function(tr) {
-      if(tr.key === key) { return tr; }
+      return tr.key === key;
     });
     let idx = this.state.tricks.indexOf(trick);
     trick.difficulty = parseInt(difficulty, 10);
@@ -50,7 +50,7 @@ class App extends Component {
     console.log('UPDATED');
     let key = trick.key;
     let oldTrick = this.state.tricks.find(function(tr) {
-      if(tr.key === key) { return tr; }
+      return tr.key === key;
     });
     let idx = this.state.tricks.indexOf(oldTrick);
     this.setState((prevState) => {
@@ -88,10 +88,8 @@ class App extends Component {
   loadTricks = () => {
     let localTricks = localStorage.getItem('tricks-stored');
     if(localTricks === null) {
-      console.log('No saved tricks');
       return this.getsome();
     } else {
-      console.log('Loaded tricks');
       return JSON.parse(localTricks);
     }
   }
