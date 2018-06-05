@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TrickList from './TrickList';
 import AddTrick from './AddTrick';
 import logo from './logo.svg';
+import yologo from './yoyo-svgrepo.svg';
 import './App.css';
 
 class App extends Component {
@@ -64,8 +65,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">TrickTrack</h1>
+          <div className="container">
+            <div className="row">
+              <div className="col-sm App-header-content">
+                <img src={yologo} className="App-logo" alt="logo" />
+                <h1 className="App-title">TrickTrack</h1>
+              </div>
+            </div>
+          </div>
         </header>
         <div className="container">
           <div className="col-sm">
