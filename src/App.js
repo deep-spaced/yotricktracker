@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TrickList from './TrickList';
 import AddTrick from './AddTrick';
-import logo from './logo.svg';
 import yologo from './yoyo-svgrepo.svg';
 import './App.css';
 
@@ -61,6 +60,15 @@ class App extends Component {
     });
   }
 
+  switchLayouts = (e) => {
+    let parent = e.currentTarget.parentNode;
+    Array.from(parent.children).map(child => child.classList = 'btn btn-secondary');
+
+    let newClass = e.currentTarget.dataset.class;
+    document.querySelector('.trick-list').classList = `trick-list ${newClass}`;
+    e.currentTarget.classList = 'btn btn-primary';
+  }
+
   render() {
     return (
       <div className="App">
@@ -71,13 +79,25 @@ class App extends Component {
                 <img src={yologo} className="App-logo" alt="logo" />
                 <h1 className="App-title">TrickTrack</h1>
               </div>
+              <div className="col-sm text-right">
+                <div className="btn-group">
+                  <button
+                    className="btn btn-secondary"
+                    data-class="layout-list"
+                    onClick={this.switchLayouts}>&#9636;</button>
+                  <button
+                    className="btn btn-primary"
+                    data-class="layout-grid"
+                    onClick={this.switchLayouts}>&#9638;</button>
+                </div>
+              </div>
             </div>
           </div>
         </header>
         <div className="container">
           <div className="col-sm">
 
-            <div className="card-grid">
+            <div className="trick-list layout-grid">
               <TrickList
                 tricks={this.state.tricks}
                 updateDifficulty={this.updateDifficulty}

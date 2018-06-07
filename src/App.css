@@ -3,15 +3,18 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 10s linear;
-  height: 80px;
-  margin: 1rem 0;
+  /* animation: App-logo-spin infinite 10s linear; */
+  height: 30px;
 }
 
 .App-header {
   background-color: #222;
-  padding: 20px;
   color: white;
+  padding: .5rem;
+}
+
+.App-header .row {
+  padding: 0 15px;
 }
 
 .App-header-content {
@@ -19,7 +22,6 @@
   display: flex;
   margin: 0 auto;
   max-width: 1140px;
-  padding: 0 30px;
 }
 
 .App-title {
@@ -31,20 +33,38 @@
   font-size: large;
 }
 
-.card-grid {
+.layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
   padding: 1rem 0;
 }
 
-.card-container {
+.layout-list {
+}
+.layout-list .card.front {
+  display: flex;
+  flex-direction: row;
+}
+.layout-list a {
+  height: 125px;
+  display: block;
+}
+.layout-list a img {
+  height: 100%;
+  width: auto;
+}
+.layout-list .trick-description { display: none; }
+
+.trick-container {
   perspective: 1000px;
   position: relative;
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
 }
+
+
 
 .front,
 .back { backface-visibility: hidden; }

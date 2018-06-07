@@ -86,9 +86,9 @@ class AddTrick extends Component {
             </div>
 
           </form>
-          <p className="card-text">
-            <button onClick={this.createTrick} className="btn btn-primary pull-center btn-block">Add</button>
-          </p>
+          <div className="card-text">
+            <button onClick={this.createTrick} className="btn btn-success pull-center btn-block">Add</button>
+          </div>
         </div>
       </div>
     )

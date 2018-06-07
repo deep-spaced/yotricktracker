@@ -49,13 +49,13 @@ class Trick extends Component {
 
   render() {
     return (
-      <div data-key={this.props.trick.key} className="card-container">
+      <div data-key={this.props.trick.key} className="trick-container">
         <div className="flip">
           <div className="card front">
             <a target="_blank" href={this.props.trick.url}>
               <img className="card-img-top" src={this.props.trick.image} alt={this.props.trick.title} />
             </a>
-            <div className="card-body">
+            <div className="card-body trick-controls">
               <h3 className="card-title">{this.props.trick.title}</h3>
               <div className="btn-toolbar justify-content-between" role="toolbar" aria-label="Difficulty and Success">
                 <div className="input-group">
@@ -78,7 +78,7 @@ class Trick extends Component {
               </div>
 
             </div>
-            <div className="card-body">
+            <div className="card-body trick-description">
               <p className="card-text">{this.props.trick.description}</p>
             </div>
           </div>
