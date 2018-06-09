@@ -33,6 +33,12 @@
   font-size: large;
 }
 
+.trick-list-container {}
+
+.trick-list-controls {
+  padding: 1rem 0 0;
+}
+
 .layout-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -41,7 +47,9 @@
 }
 
 .layout-list {
+  padding: 1rem 0;
 }
+
 .layout-list .card.front {
   display: flex;
   flex-direction: row;
