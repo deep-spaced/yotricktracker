@@ -20,7 +20,26 @@ class TrickList extends Component {
 
   filterTricks = (e) => {
     let filter = e.currentTarget.value;
+    switch(filter) {
+      case 'completed':
+        this.filterByCompleted();
+        break;
+      case 'difficulty':
+        break;
+      case 'date':
+        break;
+      default:
+        this.setState({ tricks: this.props.tricks });
+        break;
+    }
   }
+
+  filterByCompleted = () => {
+    let filtered = this.state.tricks.filter(a => a.done === true);
+    this.setState({ tricks: filtered });
+  }
+  filterByDifficulty = () => {}
+  filterByDateAdded = () => {}
 
   render() {
     return (
@@ -31,7 +50,7 @@ class TrickList extends Component {
               <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="filter">Options</label>
               </div>
-              <select className="custom-select" id="filter">
+              <select className="custom-select" id="filter" onChange={this.filterTricks}>
                 <option>All</option>
                 <option value="completed">Completed</option>
                 <option value="difficulty">Difficulty</option>
