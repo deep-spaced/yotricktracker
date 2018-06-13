@@ -33,21 +33,31 @@
   font-size: large;
 }
 
-.trick-list-container {}
-
 .trick-list-controls {
   padding: 1rem 0 0;
 }
 
+.card-body + .card-body { padding-top: 0; }
+
 .layout-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem;
   padding: 1rem 0;
+}
+@media (min-width: 600px) {
+  .layout-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 .layout-list {
   padding: 1rem 0;
+}
+
+.layout-list .card-title {
+  font-size: 1rem;
+  padding-right: 3rem;
+  line-height: 2;
+  margin: 0;
 }
 
 .layout-list .card.front {
@@ -55,12 +65,30 @@
   flex-direction: row;
 }
 .layout-list a {
-  height: 125px;
   display: block;
+  height: 50px;
+  width: 90px;
+}
+.trick-controls {  position: relative; }
+.card.front .btn-toolbar {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  right: .5rem;
+}
+.input-difficulty { display: none; }
+@media (min-width: 600px) {
+  .layout-list a {
+    height: 125px;
+    width: auto;
+  }
 }
 .layout-list a img {
   height: 100%;
   width: auto;
+}
+.layout-list .trick-controls {
+  padding: .5rem;
 }
 .layout-list .trick-description { display: none; }
 
@@ -70,9 +98,9 @@
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
+  max-height: 5rem;
+  height: auto;
 }
-
-
 
 .front,
 .back { backface-visibility: hidden; }
@@ -91,6 +119,8 @@
 
 .flipped {
   transform: rotateY(180deg);
+  max-height: 25rem;
+  height: 100%;
 }
 
 .flip {

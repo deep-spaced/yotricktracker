@@ -60,15 +60,9 @@ class Trick extends Component {
               <div className="btn-toolbar justify-content-between" role="toolbar" aria-label="Difficulty and Success">
                 <div className="input-group">
                   <div className="input-group-prepend">
-                    <label className="input-group-text" htmlFor="difficulty">Difficulty</label>
+                    <label className="input-group-text input-difficulty" htmlFor="difficulty">Difficulty</label>
                   </div>
-                  <select className="custom-select" id="difficulty" value={this.props.trick.difficulty} onChange={this.updateDifficulty}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
+                  <button className="btn btn-disabled btn-outline-secondary">{this.props.trick.difficulty}</button>
                 </div>
 
                 <div className="btn-group">
@@ -122,7 +116,7 @@ class Trick extends Component {
 
               </form>
               <div className="card-text">
-                <div className="btn-group">
+                <div className="btn-toolbar justify-content-between">
                   <button onClick={this.cancelEdit} className="btn btn-info">Cancel</button>
                   <button onClick={this.saveTrick} className="btn btn-success">Save</button>
                 </div>
