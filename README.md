@@ -2,9 +2,19 @@
 
 A trick tracking app.
 
+## Quick Reference:
+
+Start the Rails server: `bin/rails s -p 3001`
+
+Start the React app: `yarn --cwd client start`
+
+Start them both: `rake start`
+
 ## Dev Info
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+The Rails part of this project was built using this guide: [A Rock Solid, Modern Web Stack](https://blog.heroku.com/a-rock-solid-modern-web-stack).
+
+The React part of this project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
