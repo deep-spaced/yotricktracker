@@ -51,6 +51,9 @@
 
 .layout-list {
   padding: 1rem 0;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .layout-list .card-title {
@@ -72,14 +75,14 @@
 .trick-controls {  position: relative; }
 .card.front .btn-toolbar {
   position: absolute;
-  top: .5rem;
-  left: .5rem;
-  right: .5rem;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
 }
 .input-difficulty { display: none; }
 @media (min-width: 600px) {
   .layout-list a {
-    height: 125px;
+    height: 65px;
     width: auto;
   }
 }
@@ -88,7 +91,7 @@
   width: auto;
 }
 .layout-list .trick-controls {
-  padding: .5rem;
+  padding: 1rem;
 }
 .layout-list .trick-description { display: none; }
 
@@ -98,8 +101,12 @@
   transition: 0.6s;
   transform-style: preserve-3d;
   position: relative;
-  max-height: 5rem;
+  /* max-height: 5rem; */
   height: auto;
+}
+
+.layout-list .trick-container {
+  margin-bottom: 1rem;
 }
 
 .front,
@@ -115,6 +122,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
 }
 
 .flipped {
