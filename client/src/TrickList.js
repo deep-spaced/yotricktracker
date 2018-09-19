@@ -9,7 +9,9 @@ class TrickList extends Component {
       tricks: this.props.tricks
     };
   }
+
   switchLayouts = (e) => {
+    console.log(`Current number of tricks: ${this.state.tricks.length}`);
     let parent = e.currentTarget.parentNode;
     Array.from(parent.children).map(child => child.classList = 'btn btn-secondary');
 
@@ -76,7 +78,7 @@ class TrickList extends Component {
           <div className="trick-list layout-list">
             {this.state.tricks.map(trick =>
               <Trick
-                key={trick.key}
+                key={trick.id}
                 trick={trick}
                 updateCompletion={this.props.updateCompletion}
                 updateDifficulty={this.props.updateDifficulty}
