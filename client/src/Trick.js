@@ -7,11 +7,11 @@ class Trick extends Component {
   }
 
   updateDifficulty = (event) => {
-    this.props.updateDifficulty(this.props.trick.key, event.target.value);
+    this.props.updateDifficulty(this.props.trick.id, event.target.value);
   }
 
   updateCompletionStatus = (event) => {
-    this.props.updateCompletion(this.props.trick.key);
+    this.props.updateCompletion(this.props.trick.id);
   }
 
   updateState = (event) => {
@@ -30,30 +30,30 @@ class Trick extends Component {
 
   editTrick = (e) => {
     // Edit it.
-    let selector = `[data-key="${this.props.trick.key}"]`;
+    let selector = `[data-key="${this.props.trick.id}"]`;
     document.querySelector(selector).classList.toggle("flipped");
   }
 
   saveTrick = (event) => {
     this.props.updateTrick(this.state);
-    let selector = `[data-key="${this.props.trick.key}"]`;
+    let selector = `[data-key="${this.props.trick.id}"]`;
     document.querySelector(selector).classList.toggle("flipped");
   }
 
   cancelEdit = () => {
     // Cancel it.
     this.setState(this.props.trick);
-    let selector = `[data-key="${this.props.trick.key}"]`;
+    let selector = `[data-key="${this.props.trick.id}"]`;
     document.querySelector(selector).classList.toggle("flipped");
   }
 
   render() {
     return (
-      <div data-key={this.props.trick.key} className="trick-container">
+      <div data-key={this.props.trick.id} className="trick-container">
         <div className="flip">
           <div className="card front">
             <a target="_blank" href={this.props.trick.url}>
-              <img className="card-img-top" src={this.props.trick.image} alt={this.props.trick.title} />
+              <img className="card-img-top" src={this.props.trick.image_url} alt={this.props.trick.title} />
             </a>
             <div className="card-body trick-controls">
               <h3 className="card-title">{this.props.trick.title}</h3>
@@ -111,7 +111,7 @@ class Trick extends Component {
                 <div className="input-group-prepend">
                   <label className="input-group-text" htmlFor="key">Key</label>
                 </div>
-                <input name="key" type="number" className="form-control" placeholder="Key" value={this.state.key} disabled />
+                <input name="key" type="number" className="form-control" placeholder="Key" value={this.state.id} disabled />
                 </div>
 
               </form>

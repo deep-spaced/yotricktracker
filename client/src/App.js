@@ -76,13 +76,16 @@ class App extends Component {
           </div>
         </header>
         <div className="container">
-          <div className="col-sm">
+          {this.state.tricks.length > 0
+            ? <div className="col-sm">
               <TrickList
                 tricks={this.state.tricks}
                 updateDifficulty={this.updateDifficulty}
                 updateCompletion={this.updateCompletion}
                 updateTrick={this.updateTrick} />
-          </div>
+            </div>
+            : <h2>Loading</h2>
+          }
         </div>
       </div>
 
@@ -95,7 +98,8 @@ class App extends Component {
       .then(response => {
         console.log(response);
         if(response.data.length) {
-          this.setState({ tricks: response.data.json });
+          console.log('Set data')
+          this.setState({ tricks: response.data });
         } else {
           console.log('Whatevs')
         }
